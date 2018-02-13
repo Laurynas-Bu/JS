@@ -14,9 +14,7 @@ document.querySelector('.geltonas').addEventListener('click',function () {
 
 document.querySelector('.zalias').addEventListener('click', function () {
 
-    var x = document.querySelector('.geltonas').innerText;
-    var y = document.querySelector('.raudonas').innerText;
-
-
+    var x = document.querySelector('.geltonas').innerText = 0;
+    var y = document.querySelector('.raudonas').innerText = 0;
 
 });
