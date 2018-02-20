@@ -4,46 +4,98 @@ var figuros = [
     {ilgis: 1, plotis: 5, aukstis: 5}
 ];
 
+
 document.querySelector('#primary-data').addEventListener('click',function () {
-
-    printData(figuros);
-
-
+    printData(figuros, false);
+    document.querySelector('#find-max').removeAttribute('disabled');
 });
 
-function printData(data) {
+document.querySelector('#find-max').addEventListener('click',function () {
+    findMax(figuros);
+});
 
-var table = document.querySelector('.table');
+function printData(data, withTuris) {
+    var table = document.querySelector('.table');
 
-var tbody=document.querySelector(".table tbody");
-if (tbody != null){
-    tbody.remove();
+    var tbody = document.querySelector(".table tbody");
+
+    if( tbody!= null ){
+        tbody.remove();
+    }
+
+    if(document.querySelector('.table .turis') != null && !withTuris){
+        document.querySelector('.table .turis').remove();
+    }
+
+    var tableBody = document.createElement('tbody');
+
+    for(var i=0; i < data.length; i++){
+        var tableBodyRow = document.createElement('tr');
+
+        var td = document.createElement('td');
+        td.appendChild(document.createTextNode(data[i].ilgis));
+        td.classList.add("text-center");
+        tableBodyRow.appendChild(td);
+
+        var td = document.createElement('td');
+        td.appendChild(document.createTextNode(data[i].plotis));
+        td.classList.add("text-center");
+        tableBodyRow.appendChild(td);
+
+        var td = document.createElement('td');
+        td.appendChild(document.createTextNode(data[i].aukstis));
+        td.classList.add("text-center");
+        tableBodyRow.appendChild(td);
+
+        if(withTuris){
+            var td = document.createElement('td');
+            td.appendChild(document.createTextNode(data[i].turis));
+            td.classList.add("text-center");
+            tableBodyRow.appendChild(td);
+        }
+
+        tableBody.appendChild(tableBodyRow);
+    }
+
+    table.appendChild(tableBody);
+
 }
 
-var tableBody= document.createElement('tbody');
+function findMax(data) {
 
-for (var i=0; i < data.length; i++){
-    var tableBodyRow = document.createElement('tr');
+    var tempData = new Array();
+    var maxTuris = 0;
+    var maxTurisIndex = 0;
 
-    var td = document.createElement('td');
-    td.appendChild(document.createTextNode(data [i].ilgis));
-    td.classList.add("text-center");
-    tableBodyRow.appendChild(td);
+    for(var i = 0; i < data.length; i++){
+        var turis = 0;
+        turis = data[i].aukstis * data[i].plotis * data[i].ilgis;
+        tempData.push(data[i]);
+        tempData[i].turis = turis;
 
-    var td = document.createElement('td');
-    td.appendChild(document.createTextNode(data [i].plotis));
-    td.classList.add("text-center");
-    tableBodyRow.appendChild(td);
+        if( i == 0){
+            maxTuris = turis;
+        }
 
-    var td = document.createElement('td');
-    td.appendChild(document.createTextNode(data [i].aukstis));
-    td.classList.add("text-center");
-    tableBodyRow.appendChild(td);
+        if(i != 0 && turis > maxTuris){
+            maxTuris = turis;
+            maxTurisIndex = i;
+        }
+    }
 
-    tableBody.appendChild(tableBodyRow);
+    var tableHeaderRow = document.querySelector('.table thead tr');
 
-}
+    if(document.querySelector('.table .turis') != null){
+        document.querySelector('.table .turis').remove();
+    }
 
-table.appendChild(tableBody);
+    var tableHeaderNewTh = document.createElement('th');
+    tableHeaderNewTh.classList.add('text-center');
+    tableHeaderNewTh.classList.add('turis');
+    tableHeaderNewTh.appendChild(document.createTextNode('Tūris'));
+    tableHeaderRow.appendChild(tableHeaderNewTh);
 
+    printData(tempData, true);
+
+    document.querySelector('.table tbody').rows[maxTurisIndex].classList.add('max-turis');
 }
