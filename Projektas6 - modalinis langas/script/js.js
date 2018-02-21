@@ -12,31 +12,22 @@ btn.onclick = function() {
 
 span.onclick = function() {
     modal.style.display = "none";
+    resetFunction();
 };
 
 clean.onclick = function () {
     modal.style.display = "none";
+    resetFunction();
 };
 
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
+        resetFunction()
     }
 };
 
-window.onbeforeunload = myFunction;
-    function myFunction() {
-        if (modal.style.display == "none") {
-            forma.reset();}
-        else {}
-    }
-
-// forma.addEventListener("reset", myFunction);
-
-// function myFunction() {
-    // if (modal.style.display == "none") {
-      //  forma.reset();
-  //  }
-// }
-
+function resetFunction() {
+       forma.reset();
+}
 

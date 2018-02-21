@@ -55,11 +55,11 @@
     to {top: 0; opacity: 1}
 }
 
-.col-md-1{
-    padding: 15px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#bandymas {
+    padding: 25px 0;
+}
+#addto {
+    margin-right: 15px;
 }
 
 #forma {

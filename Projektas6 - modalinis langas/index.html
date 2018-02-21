@@ -15,42 +15,59 @@
 <button id="myBtn">Atidaryk</button>
 <div id="myModal" class="modal">
     <div class="modal-content">
-    <div><span class="close">&times;</span></div>
+    <div class="col-md-12"><span class="close">&times;</span></div>
         <div class="container">
             <div class="form-row">
                 <form id="forma">
-                <div class="col-md-6">
-                    <span class="input-group-addon">Vardas</span>
-                    <input id="vardas" type="text" class="form-control" name="msg" placeholder=""/>
-                </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="vardas">Vardas</label>
+                                <input type="text" class="form-control" name="vardas" id="vardas" />
+                            </div>
 
-                <div class="col-md-6">
-                    <span class="input-group-addon">Pavardė</span>
-                    <input id="pavarde" type="text" class="form-control" name="msg" placeholder=""/>
-                </div>
-                <div class="col-md-12">
-                    <span class="input-group-addon">Tel.Nr</span>
-                    <input id="telnr" type="text" class="form-control" name="msg" placeholder=""/>
-                </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="pavarde">Pavarde</label>
+                                <input type="text" class="form-control" name="pavarde" id="pavarde" />
+                            </div>
 
-                <div class="col-md-12">
-                    <span class="input-group-addon"> El.past </span>
-                    <input id="egmail" type="email" class="form-control" name="msg" placeholder=""/>
-                </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="mail">El. pastas</label>
+                                <input type="email" class="form-control" name="email" id="mail" />
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Tel. nr.</label>
+                                <input type="text" class="form-control" name="phone" id="phone" />
+                            </div>
+                        </div>
+                    </div>
                 </form>
 
-                <div class="col-md-1">
-                <button id="addto">Prideti </button>
-                    </div>
-            <div class="col-md-1">
-                    <button id="cleanto" type="reset"> Isjungti</button>
-            </div>
+                <div class="col-md-12" id="bandymas">
+                    <button id="addto">Prideti </button>
+                    <button id="cleanto" type="reset"> Isjungti </button>
+                </div>
             </div>
         </div>
     </div>
 </div>
+    <div class="col-md-4" id="list">
+        <div class="person">
+            <div class="row">
+                <div class="col-md-6">Vardas Pavardė</div>
+                <div class="col-md-6">Vaidotas Test</div>
+                <div class="col-md-6">El pastas</div>
+                <div class="col-md-6">example@ggg.com</div>
+                <div class="col-md-6">tel nr</div>
+                <div class="col-md-6">t864646</div>
+            </div>
+        </div>
+    </div>
 </div>
-
 </body>
 <script src="script/js.js"></script>
 </html>
