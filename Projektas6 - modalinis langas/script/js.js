@@ -39,32 +39,36 @@ function resetFunction() {
     //body.style.overflow = "hidden";
 //}
 
-
-
 addTo.addEventListener("click", function() {
     required();
 });
 
-
 function required()
 {
-    var empty = document.form.text.value;
-    if (empty === "")
-    {
-        alert("Please input a Value");
-        return false;
-    }
-    else
-    {
 
-        var addIn;
-        addIn = document.getElementById("forma").elements[0].value;
-        document.getElementById(".col-md-4 person row").innerHTML = addIn;
-
-        //var node = document.createElement("div");
-        //var textnode = document.createTextNode(addIn);
-        //node.appendChild(textnode);
-        //document.getElementById(".col-md-4 person row").appendChild(node);
-        return true;
+    //var addIn = document.getElementById("forma").elements[0].value;
+    var addIn = document.getElementById("forma");
+    var error = '';
+    var i;
+    for (i = 0; i < addIn.elements.length; i++) {
+        if (addIn.elements[i].value === ""){
+            error += 'Neivestas: ' + addIn.elements[i].getAttribute('name') + '\n';
+        }
     }
+
+    if(error != ''){
+        alert(error);
+        return
+    }
+
+    var list = document.querySelector(".person .row");
+
+    var node = document.createElement("div");
+    node.classList.add('col-md-6');
+    node.appendChild(document.createTextNode('Vardas Pavardė'));
+    list.appendChild(node);
+    var fullname = document.createElement('div');
+    fullname.classList.add('col-md-6');
+    fullname.appendChild(document.createTextNode(addIn));
+    list.appendChild(fullname);
 }
