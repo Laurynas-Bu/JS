@@ -19,10 +19,10 @@ span.onclick = function() {
     resetFunction();
 };
 
-clean.onclick = function () {
+clean.addEventListener("click", function() {
     modal.style.display = "none";
     resetFunction();
-};
+});
 
 window.onclick = function(event) {
     if (event.target == modal) {
@@ -43,16 +43,15 @@ addTo.addEventListener("click", function() {
     required();
 });
 
+
 function required()
 {
-
-    //var addIn = document.getElementById("forma").elements[0].value;
     var addIn = document.getElementById("forma");
     var error = '';
     var i;
     for (i = 0; i < addIn.elements.length; i++) {
         if (addIn.elements[i].value === ""){
-            error += 'Neivestas: ' + addIn.elements[i].getAttribute('name') + '\n';
+            error += 'Neužpildytas laukelis: ' + addIn.elements[i].getAttribute('name') + '\n';
         }
     }
 
@@ -61,14 +60,42 @@ function required()
         return
     }
 
-    var list = document.querySelector(".person .row");
+    reverse();
+}
 
-    var node = document.createElement("div");
+
+function reverse() {
+
+    var addIn = document.getElementById("forma");
+    var list = document.querySelector(".person .row");
+    var i;
+
+    var node = document.createElement('div');
     node.classList.add('col-md-6');
-    node.appendChild(document.createTextNode('Vardas Pavardė'));
+    node.appendChild(document.createTextNode(addIn.elements[0].getAttribute('name') + ' ' + addIn.elements[1].getAttribute('name')));
     list.appendChild(node);
-    var fullname = document.createElement('div');
-    fullname.classList.add('col-md-6');
-    fullname.appendChild(document.createTextNode(addIn));
-    list.appendChild(fullname);
+
+    var form = document.createElement('div');
+    form.classList.add('col-md-6');
+    form.appendChild(document.createTextNode((addIn.elements[0].value) + ' ' + (addIn.elements[1].value)));
+    list.appendChild(form);
+
+
+    for (i = 0; i < addIn.elements.length; i++) {
+        if (i >= 2) {
+
+            var node = document.createElement('div');
+            node.classList.add('col-md-6');
+            node.appendChild(document.createTextNode(addIn.elements[i].getAttribute('name')));
+            list.appendChild(node);
+
+            var form = document.createElement('div');
+            form.classList.add('col-md-6');
+            form.appendChild(document.createTextNode(addIn.elements[i].value));
+            list.appendChild(form);
+        }
+    }
+
+    modal.style.display = "none";
+    resetFunction();
 }
