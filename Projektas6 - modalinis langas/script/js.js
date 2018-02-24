@@ -5,39 +5,34 @@ btn = document.getElementById("myBtn");
 span = document.getElementsByClassName("close")[0];
 clean = document.getElementById('cleanto');
 forma = document.getElementById('forma');
-body = document.getElementById('body');
+body = document.querySelector('body');
 addTo = document.getElementById('addto');
 
 btn.onclick = function() {
     modal.style.display = "block";
-   // overflowFunction()
+    body.style.overflow = "hidden";
 
 };
 
 span.onclick = function() {
     modal.style.display = "none";
-    resetFunction();
+    body.style.overflow = "scroll";
+    forma.reset();
 };
 
 clean.addEventListener("click", function() {
     modal.style.display = "none";
-    resetFunction();
+    forma.reset();
+    body.style.overflow = "scroll";
 });
 
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
-        resetFunction()
+        body.style.overflow = "scroll";
+        forma.reset();
     }
 };
-
-function resetFunction() {
-       forma.reset();
-}
-
-//function overflowFunction() {
-    //body.style.overflow = "hidden";
-//}
 
 addTo.addEventListener("click", function() {
     required();
@@ -97,5 +92,6 @@ function reverse() {
     }
 
     modal.style.display = "none";
-    resetFunction();
+    body.style.overflow = "scroll";
+    forma.reset();
 }
