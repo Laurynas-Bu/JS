@@ -41,8 +41,8 @@ window.onload = function(){
     console.log('hi');
   });
   
-  var months =  ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  var days =  ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  var months =  ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Birželis', 'Liepa', 'Rugpjūtis', 'Rugsėjis', 'Spalis', 'Lapkritis', 'Gruodis'];
+  var days =  ['Sekmadienis', 'Pirmadienis', 'Antradienis', 'Trečiadienis', 'Ketvirtadienis', 'Penktadienis', 'Šeštadienis'];
   var daysFirstLetter =  ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 
   var globalYear, globalMonth, globalDay, globalDayOfWeek;
