@@ -1,6 +1,6 @@
 window.onload = function(){
   (function(window){ 
-  var html =      "<div id='date-pick-modal' class='modal-bg'></div>"
+  var html =
                 + "<div id='date-pick' class='date-pick text-center'>"
                   + "<div id='date-pick-body-current' class='date-pick-body'>"
                     + "<div id='date-pick-month' class='date-pick-month'>"
