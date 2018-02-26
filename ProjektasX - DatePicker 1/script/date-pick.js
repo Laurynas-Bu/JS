@@ -1,7 +1,6 @@
 window.onload = function(){
-  (function(window){ 
-  var html =
-                + "<div id='date-pick' class='date-pick text-center'>"
+  (function(window){
+      var html =   "<div id='date-pick' class='date-pick text-center'>"
                   + "<div id='date-pick-body-current' class='date-pick-body'>"
                     + "<div id='date-pick-month' class='date-pick-month'>"
                       + "<span class='date-pick-controls date-pick-prev-month'>"
@@ -43,7 +42,6 @@ window.onload = function(){
   
   var months =  ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Birželis', 'Liepa', 'Rugpjūtis', 'Rugsėjis', 'Spalis', 'Lapkritis', 'Gruodis'];
   var days =  ['Sekmadienis', 'Pirmadienis', 'Antradienis', 'Trečiadienis', 'Ketvirtadienis', 'Penktadienis', 'Šeštadienis'];
-  var daysFirstLetter =  ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 
   var globalYear, globalMonth, globalDay, globalDayOfWeek;
 
@@ -154,7 +152,7 @@ window.onload = function(){
         datePickSelectatble[i].onclick = changeSelectedDay;
     };
 
-  } // makeCalender
+  }; // makeCalender
 
   _makeCalender("current");
 
@@ -205,8 +203,7 @@ window.onload = function(){
 }
 
 
-
-/* 
+/*
  * classList.js: Cross-browser full element.classList implementation.
  * 2014-07-23
  *

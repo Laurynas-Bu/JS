@@ -76,7 +76,6 @@
 }
 #date-pick-container .date-pick .date-pick-body .date-pick-day.date-pick-selected-day {
   background: #273238;
-  border-radius: 100%;
   color: #FDFAF7;
 }
 #date-pick-container .date-pick .date-pick-body .date-pick-day.date-pick-extra-box {
