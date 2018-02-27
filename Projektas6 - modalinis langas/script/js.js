@@ -58,7 +58,6 @@ function required()
     reverse();
 }
 
-
 function reverse() {
 
     var addIn = document.getElementById("forma");

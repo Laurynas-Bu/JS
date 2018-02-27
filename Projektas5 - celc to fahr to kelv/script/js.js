@@ -6,20 +6,17 @@ var celcius, kelvin, fahrenheit;
     fahrenheit = document.getElementById("fahr");
 }
 
-function toCelcius()
-{
+celcius.oninput = function () {
     kelvin.value = (parseFloat(celcius.value) + 273.15).toFixed(2);
     fahrenheit.value = (parseFloat(celcius.value) * 1.8 + 32).toFixed(2);
-}
+};
 
-function toFahrenheit()
-{
+fahrenheit.oninput = function () {
     celcius.value = ((parseFloat(fahrenheit.value) - 32) / 1.8).toFixed(2);
     kelvin.value = ((parseFloat(fahrenheit.value) + 459.67) * 5/9).toFixed(2);
-}
+};
 
-function toKelvin()
-{
+kelvin.oninput = function () {
     celcius.value = (parseFloat(kelvin.value) - 273.15).toFixed(2);
     fahrenheit.value = (parseFloat(kelvin.value) * 9/5 - 459.67).toFixed(2);
-}
+};
